@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportCenter - Dashboard Pemesanan Lapangan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div>
+                <h1>⚡ SportCenter</h1>
+                <p>Data Engineering Project — Web-Based Database</p>
+            </div>
+            <div class="badge-status">Cloud Database Connected</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="toast" class="toast hidden"></div>
+
+        <section class="stats-container">
+            <div class="stat-card">
+                <h3>Total Booking</h3>
+                <p id="stat-total">0</p>
+            </div>
+            <div class="stat-card Futsal">
+                <h3>Sesi Futsal</h3>
+                <p id="stat-futsal">0</p>
+            </div>
+            <div class="stat-card Badminton">
+                <h3>Sesi Badminton</h3>
+                <p id="stat-badminton">0</p>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            
+            <section class="card">
+                <h2>Formulir Booking Lapangan</h2>
+                <form id="form-booking">
+                    <div class="form-group">
+                        <label for="nama">Nama Pelanggan</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama lengkap..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lapangan">Pilihan Lapangan</label>
+                        <select id="lapangan" required>
+                            <option value="">-- Pilih Lapangan --</option>
+                            <option value="Lapangan Futsal A">Lapangan Futsal A</option>
+                            <option value="Lapangan Futsal B">Lapangan Futsal B</option>
+                            <option value="Lapangan Badminton 1">Lapangan Badminton 1</option>
+                            <option value="Lapangan Badminton 2">Lapangan Badminton 2</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tanggal">Tanggal Main</label>
+                        <input type="date" id="tanggal" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jam">Jam Mulai</label>
+                        <input type="time" id="jam" required>
+                    </div>
+
+                    <button type="submit" id="btn-submit">Amankan Jadwal</button>
+                </form>
+            </section>
+
+            <section class="card table-wrapper">
+                <div class="table-actions">
+                    <h2>Live Spreadsheet Data</h2>
+                    <input type="text" id="search-bar" placeholder="Cari nama atau lapangan...">
+                </div>
+
+                <div id="loading" class="spinner-box">
+                    <div class="spinner"></div>
+                    <p>Sinkronisasi data dengan Google Sheets...</p>
+                </div>
+
+                <div class="responsive-table">
+                    <table id="main-table" class="hidden">
+                        <thead>
+                            <tr>
+                                <th>ID Booking</th>
+                                <th>Pelanggan</th>
+                                <th>Fasilitas</th>
+                                <th>Tanggal</th>
+                                <th>Jadwal</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
